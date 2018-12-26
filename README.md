@@ -89,7 +89,7 @@ tar -xvzf *.gz
 mv mattermost /opt
 ```
 
-4. 創建儲存檔案的目錄
+4. 創建儲存檔案的目錄：
 
 ```
 mkdir /opt/mattermost/data
@@ -97,7 +97,7 @@ mkdir /opt/mattermost/data
 
 > 這個目錄會包含所有上傳的檔案、圖片、使用者的貼文等紀錄。需準備足夠的硬碟空間去儲存這些資料。
 
-5. 設定系統使用者與群組 mattermost，並將 Mattermost 目錄的存取權限賦予 mattermost
+5. 設定系統使用者與群組 mattermost，並將 Mattermost 目錄的存取權限賦予 mattermost：
 
 ```
 useradd --system --user-group mattermost
@@ -105,7 +105,17 @@ chown -R mattermost:mattermost /opt/mattermost
 chmod -R g+w /opt/mattermost
 ```
 
-6. 
+6. 在設定檔 /opt/mattermost/config/config.json 加入資料庫設定： 
+
+```
+...
+121 "SqlSettings": {
+122     "DriverName": "mysql",
+123     "DataSource": "mmAdmin:P@ssw0rd@tcp(ip-address:3306)/mattermost?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
+...
+```
+
+7. 
 
 ## <a name=config>設定 Mattermost 伺服器</a>
 
