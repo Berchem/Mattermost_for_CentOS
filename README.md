@@ -20,8 +20,7 @@ yum upgrade -y
 1. 安裝 MariaDB：
 
 ```
-yum install 
-mariadb mariadb-server -y
+yum install mariadb mariadb-server -y
 ```
 
 2. 安裝完成後，啟動 MariaDB 服務，並且設定開機同時啟動：
